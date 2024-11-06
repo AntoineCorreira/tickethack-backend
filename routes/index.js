@@ -1,18 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
-const port = 3000;
+const router = express.Router();
 
-// Importer les routes
-const cartRoutes = require('./cartroutes');
-const bookingsRoutes = require('./bookingsroutes');
-
-app.use(bodyParser.json());
-
-
-app.use('/cart', cartRoutes); 
-app.use('/bookings', bookingsRoutes); 
-
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
+/* GET home page. */
+router.get('/', (req, res) => {
+    res.send('Welcome to the home page!');
 });
+
+module.exports = router;
