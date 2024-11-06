@@ -5,9 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 require('./models/connection');
 
-const indexRouter = require('./routes/index');
-const bookingsroutesRouter = require('./routes/bookingsroutes');
-const cartroutesRouter = require('./routes/cartroutes');
+var indexRouter = require('./routes/index');
 
 const app = express();
 const cors = require('cors');
@@ -22,11 +20,5 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/bookings', bookingsroutesRouter);
-app.use('/cart', cartroutesRouter);
-
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
-});
 
 module.exports = app;
